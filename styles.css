@@ -1,0 +1,157 @@
+/* Réinitialisation des styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    cursor: none; /* Cache le curseur par défaut */
+}
+
+/* Empêche le curseur par défaut d'apparaître sur les liens, boutons, inputs, textareas et labels */
+a, button, input, textarea, label {
+    cursor: none; /* Curseur personnalisé toujours actif */
+}
+
+/* Style des sections */
+
+#contact {
+    background: linear-gradient(90deg, #a53cdd, #07d896, #e73969, #a53cdd); /* Gradient aligné avec le curseur */
+    background-size: 300% 300%; /* Doit correspondre à l'animation du curseur */
+    transition: background-position 0.3s ease; /* Transition pour l'effet visuel */
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    display: flex; /* Pour centrer le contenu */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+    position: relative; /* Permet la fusion entre header et accueil */
+}
+
+#projets{
+    background: linear-gradient(90deg, #a53cdd, #07d896, #e73969, #a53cdd); /* Gradient aligné avec le curseur */
+    background-size: 300% 300%; /* Doit correspondre à l'animation du curseur */
+    transition: background-position 0.3s ease; /* Transition pour l'effet visuel */
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    display: flex; /* Pour centrer le contenu */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+    position: relative; /* Permet la fusion entre header et accueil */
+}
+
+#a-propos{
+    background: linear-gradient(90deg, #a53cdd, #07d896, #e73969, #a53cdd); /* Gradient aligné avec le curseur */
+    background-size: 300% 300%; /* Doit correspondre à l'animation du curseur */
+    transition: background-position 0.3s ease; /* Transition pour l'effet visuel */
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    display: flex; /* Pour centrer le contenu */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+    position: relative; /* Permet la fusion entre header et accueil */
+}
+
+#accueil{
+    background: linear-gradient(90deg, #a53cdd, #07d896, #e73969, #a53cdd); /* Gradient aligné avec le curseur */
+    background-size: 300% 300%; /* Doit correspondre à l'animation du curseur */
+    transition: background-position 0.3s ease; /* Transition pour l'effet visuel */
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    display: flex; /* Pour centrer le contenu */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+    position: relative; /* Permet la fusion entre header et accueil */
+}
+
+header {
+    background: linear-gradient(90deg, #a53cdd, #07d896, #e73969, #a53cdd); /* Gradient aligné avec le curseur */
+    background-size: 300% 300%; /* Doit correspondre à l'animation du curseur */
+    transition: background-position 0.3s ease; /* Transition pour l'effet visuel */
+    height: 6vh; /* Prend toute la hauteur de la fenêtre */
+    display: flex; /* Pour centrer le contenu */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+    position: relative; /* Permet la fusion entre header et accueil */
+}
+
+nav ul {
+    list-style: none; /* Retire les puces de la liste */
+    padding: 0;
+    display: flex; /* Affiche les éléments de navigation en ligne */
+    gap: 20px; /* Espacement entre les liens */
+}
+
+nav ul li {
+    display: inline; /* Les éléments de la liste sont en ligne */
+}
+
+nav ul li a {
+    color: #fff; /* Couleur des liens blanche */
+    text-decoration: none; /* Pas de soulignement */
+    font-weight: bold;
+    font-size: 1.2rem; /* Taille des liens augmentée */
+    padding: 10px 20px; /* Ajout de padding pour rendre les liens plus cliquables */
+    transition: background-color 0.2s ease, color 0.2s ease; /* Transition pour l'effet de hover */
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Légère opacité sur survol */
+    color: #ff0000; /* Couleur changeante sur hover */
+    border-radius: 5px; /* Bords arrondis */
+}
+
+#custom-cursor {
+    width: 25px; /* Agrandir le curseur */
+    height: 25px; /* Agrandir le curseur */
+    border-radius: 50%;
+    background: linear-gradient(45deg,#0000ff, #ff0000, #00ff00, #0000ff, #ff0000); /* Gradient */
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite; /* Animation de gradient */
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+}
+
+/* Animation pour le gradient */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Styles pour les sections avec transition */
+section h1, section h2 {
+    color: #fff; /* Couleur de texte blanche pour les titres */
+}
+
+/* Couleurs pour les boutons */
+button {
+    background-color: rgba(74, 74, 74, 0.8); /* Couleur plus claire pour plus de visibilité */
+    color: #fff;
+    padding: 0.75rem 1.5rem; /* Agrandir le padding du bouton */
+    border: none;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease; /* Transition pour l'effet de survol */
+}
+
+button:hover {
+    background-color: rgba(51, 51, 51, 0.8); /* Légèrement plus foncé lors du survol */
+}
+
+footer {
+    background: linear-gradient(90deg, #a53cdd, #07d896, #e73969, #a53cdd); /* Gradient aligné avec le curseur */
+    background-size: 300% 300%; /* Doit correspondre à l'animation du curseur */
+    transition: background-position 0.3s ease; /* Transition pour l'effet visuel */
+    height: 3vh; /* Prend toute la hauteur de la fenêtre */
+    display: flex; /* Pour centrer le contenu */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+    position: relative; /* Permet la fusion entre header et accueil */
+}

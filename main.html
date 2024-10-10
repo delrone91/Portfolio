@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#a-propos">À propos</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="accueil">
+            <h1>Bienvenue sur mon portfolio</h1>
+            <p>Je suis un développeur web passionné</p>
+        </section>
+
+        <section id="a-propos">
+            <h2>À propos de moi</h2>
+            <p>Je suis un développeur web avec une expérience en HTML, CSS et JavaScript.</p>
+        </section>
+
+        <section id="projets">
+            <h2>Mes projets</h2>
+            <div class="projet">
+                <h3>Projet 1</h3>
+                <p>Description du projet 1</p>
+            </div>
+            <div class="projet">
+                <h3>Projet 2</h3>
+                <p>Description du projet 2</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contactez-moi</h2>
+            <form>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mon Portfolio. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Création d'un curseur personnalisé
+        const cursor = document.createElement('div');
+        cursor.id = 'custom-cursor'; // ID pour le curseur
+        document.body.appendChild(cursor); // Ajoute le curseur au corps de la page
+
+        // Événement de mouvement de la souris
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px'; // Positionne le curseur horizontalement
+            cursor.style.top = e.clientY + 'px'; // Positionne le curseur verticalement
+
+            // Calculer la couleur en fonction de la position de la souris
+            const x = e.clientX / window.innerWidth * 255; // Récupère la position X normalisée
+            const y = e.clientY / window.innerHeight * 255; // Récupère la position Y normalisée
+            const color = `rgb(${Math.round(x)}, ${Math.round(y)}, ${Math.round(255 - x)})`; // Crée une couleur dynamique
+
+            // Changer la couleur du texte des liens en fonction de la souris
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.style.color = color; // Applique la couleur calculée à chaque lien
+            });
+
+            // Appliquer la couleur de texte dynamique aux sections
+            document.querySelectorAll('h1, h2').forEach(title => {
+                title.style.color = color; // Change la couleur des titres
+            });
+
+            // Appliquer la position du gradient en fonction de la souris pour le header
+            const gradientX = e.clientX / window.innerWidth * 100; // Calcule la position du dégradé X
+            const gradientY = e.clientY / window.innerHeight * 100; // Calcule la position du dégradé Y
+            document.querySelector('header').style.backgroundPosition = `${gradientX}% ${gradientY}%`; // Met à jour la position du dégradé
+
+
+            // Appliquer la position du gradient en fonction de la souris pour le footer
+            const gradientfootX = e.clientX / window.innerWidth * 100; // Calcule la position du dégradé X
+            const gradientfootY = e.clientY / window.innerHeight * 100; // Calcule la position du dégradé Y
+            document.querySelector('footer').style.backgroundPosition = `${gradientfootX}% ${gradientfootY}%`; // Met à jour la position du dégradé
+
+            // Appliquer la position du gradient en fonction de la souris sur chaque section
+            document.querySelectorAll('section').forEach(section => {
+                const gradientX = e.clientX / window.innerWidth * 100; // Calcule la position du dégradé X
+                const gradientY = e.clientY / window.innerHeight * 100; // Calcule la position du dégradé Y
+                section.style.backgroundPosition = `${gradientX}% ${gradientY}%`; // Met à jour la position du dégradé pour chaque section
+            });
+        });
+
+        
+        // Quand l'utilisateur clique, rétrécir le curseur
+        document.addEventListener('mousedown', () => {
+            cursor.style.transform = 'scale(0.7)'; // Réduit la taille du curseur
+        });
+
+        // Quand l'utilisateur relâche le clic, restaurer la taille d'origine du curseur
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'scale(1)'; // Restaure la taille originale du curseur
+        });
+        
+
+        // Fonction pour calculer le mélange des couleurs de fond
+        function blendColors(bg1, bg2, ratio) {
+            // Ici, on suppose que bg1 et bg2 sont des gradients CSS
+            // Si c'est le cas, on peut simplement ajuster l'opacité pour simuler un fondu
+            return `linear-gradient(${45 + 35 * ratio}deg, #ff0000, #00ff00, #0000ff)`;
+        }
+            
+    </script>
+
+</body>
+</html>
