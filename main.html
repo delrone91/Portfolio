@@ -107,7 +107,6 @@
                 section.style.backgroundPosition = `${gradientX}% ${gradientY}%`; // Met à jour la position du dégradé pour chaque section
             });
         });
-
         
         // Quand l'utilisateur clique, rétrécir le curseur
         document.addEventListener('mousedown', () => {
@@ -118,14 +117,72 @@
         document.addEventListener('mouseup', () => {
             cursor.style.transform = 'scale(1)'; // Restaure la taille originale du curseur
         });
-        
 
-        // Fonction pour calculer le mélange des couleurs de fond
-        function blendColors(bg1, bg2, ratio) {
-            // Ici, on suppose que bg1 et bg2 sont des gradients CSS
-            // Si c'est le cas, on peut simplement ajuster l'opacité pour simuler un fondu
-            return `linear-gradient(${45 + 35 * ratio}deg, #ff0000, #00ff00, #0000ff)`;
+
+
+
+        // Tableau de base avec des couleurs initiales
+        let colors = ["#ff6347", "#4682b4", "#32cd32", "#ff69b4", "#ffa500", "#9370db", "#ff4500", "#1e90ff", "#daa520"];
+
+        // Copier le tableau initial pour pouvoir réinjecter les couleurs
+        const originalColors = [...colors];
+
+        // Fonction pour obtenir une couleur aléatoire et la supprimer du tableau
+        function getRandomColor() {
+            const randomIndex = Math.floor(Math.random() * colors.length); // Choisir une couleur aléatoirement
+            const selectedColor = colors[randomIndex]; // Récupérer la couleur choisie
+            colors.splice(randomIndex, 1); // Supprimer la couleur du tableau
+            return selectedColor;
         }
+
+        // Fonction pour générer un dégradé avec trois couleurs aléatoires
+        function generateGradient() {
+            // Si moins de 3 couleurs, réinitialiser le tableau
+            if (colors.length < 3) {
+                colors = [...originalColors];
+            }
+
+            // Choisir trois couleurs aléatoires
+            const color1 = getRandomColor();
+            const color2 = getRandomColor();
+            const color3 = getRandomColor();
+
+            // Générer un dégradé linéaire avec les trois couleurs
+            return `linear-gradient(90deg, ${color1}, ${color2}, ${color3})`;
+        }
+
+        // Fonction pour appliquer des gradients aléatoires aux sections, header et footer
+        function applyRandomGradients() {
+            // Générer un seul dégradé
+            const gradient = generateGradient(); // Obtenir un gradient aléatoire
+
+            // Sélectionner tous les éléments à colorer
+            const elements = document.querySelectorAll("section, header, footer");
+
+            elements.forEach(element => {
+                element.style.background = gradient; // Appliquer le dégradé à l'élément
+            });
+        }
+
+        // Fonction pour suivre la souris et ajuster le dégradé en fonction de la position
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth * 100; // Récupère la position X normalisée en %
+            const y = e.clientY / window.innerHeight * 100; // Récupère la position Y normalisée en %
+
+            document.querySelectorAll('section, header, footer').forEach(section => {
+                section.style.backgroundSize = '300% 300%'; // Assurez-vous que le background est suffisamment grand pour voir le mouvement
+                section.style.backgroundPosition = `${x}% ${y}%`; // Met à jour la position du dégradé
+            });
+        });
+
+
+        // Changer les gradients toutes les 15 secondes
+        setInterval(() => {
+            applyRandomGradients();
+        }, 15000); // 15 000 millisecondes = 15 secondes
+
+        // Appliquer les gradients dès le chargement de la page
+        window.addEventListener("DOMContentLoaded", applyRandomGradients);
             
     </script>
 
