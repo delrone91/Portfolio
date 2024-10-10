@@ -85,3 +85,22 @@
     justify-content: center; /* Centre horizontalement */
     text-align: center; /* Centre le texte */
 }
+
+
+// Appliquer la position du gradient en fonction de la souris pour le header
+            const gradientX = e.clientX / window.innerWidth * 100; // Calcule la position du dégradé X
+            const gradientY = e.clientY / window.innerHeight * 100; // Calcule la position du dégradé Y
+            document.querySelector('header').style.backgroundPosition = `${gradientX}% ${gradientY}%`; // Met à jour la position du dégradé
+
+
+            // Appliquer la position du gradient en fonction de la souris pour le footer
+            const gradientfootX = e.clientX / window.innerWidth * 100; // Calcule la position du dégradé X
+            const gradientfootY = e.clientY / window.innerHeight * 100; // Calcule la position du dégradé Y
+            document.querySelector('footer').style.backgroundPosition = `${gradientfootX}% ${gradientfootY}%`; // Met à jour la position du dégradé
+
+            // Appliquer la position du gradient en fonction de la souris sur chaque section
+            document.querySelectorAll('section').forEach(section => {
+                const gradientX = e.clientX / window.innerWidth * 100; // Calcule la position du dégradé X
+                const gradientY = e.clientY / window.innerHeight * 100; // Calcule la position du dégradé Y
+                section.style.backgroundPosition = `${gradientX}% ${gradientY}%`; // Met à jour la position du dégradé pour chaque section
+            });
