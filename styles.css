@@ -9,6 +9,8 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
+    display: flex;
+    flex-direction: column;
     cursor: none; /* Cache le curseur par défaut */
 }
 
@@ -19,70 +21,130 @@ a, button, input, textarea, label {
 
 /* Style des sections */
 
+                                                            /* Section Contact */
 #contact {
-    background: linear-gradient(90deg, #a53cdd, #07d896, #e73969, #a53cdd); /* Gradient aligné avec le curseur */
-    background-size: 300% 300%; /* Doit correspondre à l'animation du curseur */
-    transition: background-position 0.3s ease; /* Transition pour l'effet visuel */
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
-    display: flex; /* Pour centrer le contenu */
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement */
-    text-align: center; /* Centre le texte */
-    position: relative; /* Permet la fusion entre header et accueil */
+    display: flex;
+    flex-direction: column; /* Les éléments sont empilés verticalement */
+    transition: background-position 0.1s ease; /* Transition pour l'effet visuel */
+    justify-content: space-evenly; /* Espacement égal entre les éléments */
+    align-items: center; /* Centrer horizontalement */
+    min-height: 100vh;
+    text-align: center; /* Texte centré */
+    padding: 20px;
 }
 
-#projets{
-    background: linear-gradient(90deg, #a53cdd, #07d896, #e73969, #a53cdd); /* Gradient aligné avec le curseur */
-    background-size: 300% 300%; /* Doit correspondre à l'animation du curseur */
-    transition: background-position 0.3s ease; /* Transition pour l'effet visuel */
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
-    display: flex; /* Pour centrer le contenu */
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement */
-    text-align: center; /* Centre le texte */
-    position: relative; /* Permet la fusion entre header et accueil */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
 }
 
-#a-propos{
-    background: linear-gradient(90deg, #a53cdd, #07d896, #e73969, #a53cdd); /* Gradient aligné avec le curseur */
-    background-size: 300% 300%; /* Doit correspondre à l'animation du curseur */
-    transition: background-position 0.3s ease; /* Transition pour l'effet visuel */
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
-    display: flex; /* Pour centrer le contenu */
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement */
-    text-align: center; /* Centre le texte */
-    position: relative; /* Permet la fusion entre header et accueil */
+#contact form input, 
+
+#contact form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
 }
 
-#accueil{
-    background: linear-gradient(90deg, #a53cdd, #07d896, #e73969, #a53cdd); /* Gradient aligné avec le curseur */
-    background-size: 300% 300%; /* Doit correspondre à l'animation du curseur */
-    transition: background-position 0.3s ease; /* Transition pour l'effet visuel */
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
-    display: flex; /* Pour centrer le contenu */
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement */
-    text-align: center; /* Centre le texte */
-    position: relative; /* Permet la fusion entre header et accueil */
+#contact form label {
+    margin-bottom: 5px;
 }
 
+#contact form button {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+                                                            /* Section Projets */
+#projets {
+    display: flex;
+    flex-direction: column; /* Les éléments sont disposés horizontalement, mais inversés */
+    transition: background-position 0.1s ease; /* Transition pour l'effet visuel */
+    justify-content: space-between; /* Espacer uniformément avec espace entre les éléments */
+    align-items: center; /* Alignement en haut */
+    min-height: 100vh;
+    text-align: center; /* Texte centré */
+    padding: 20px;
+}
+
+#projets .projet {
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+                                                            /* Section À propos */
+#a-propos {
+    display: flex;
+    flex-direction: column; /* Les éléments sont disposés verticalement */
+    transition: background-position 0.1s ease; /* Transition pour l'effet visuel */
+    justify-content: center; /* Centrer verticalement */
+    align-items: center; /* Les éléments sont alignés à gauche */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+#a-propos h3 {
+    margin-top: 20px;
+}
+
+                                                            /* Section Accueil */
+#accueil {
+    display: flex;
+    flex-direction: column; /* Les éléments sont disposés horizontalement */
+    transition: background-position 0.1s ease; /* Transition pour l'effet visuel */
+    justify-content: center; /* Les éléments sont espacés uniformément */
+    align-items: center; /* Centrer verticalement */
+    min-height: 100vh;
+    text-align: center; /* Texte aligné à gauche */
+    padding: 50px 0;
+}
+
+#accueil h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#accueil p {
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+                                                            /* Section header */
 header {
-    background: linear-gradient(90deg, #a53cdd, #07d896, #e73969, #a53cdd); /* Gradient aligné avec le curseur */
-    background-size: 300% 300%; /* Doit correspondre à l'animation du curseur */
-    transition: background-position 0.3s ease; /* Transition pour l'effet visuel */
+    transition: background-position 0.1s ease; /* Transition pour l'effet visuel */
     height: 6vh; /* Prend toute la hauteur de la fenêtre */
     display: flex; /* Pour centrer le contenu */
     align-items: center; /* Centre verticalement */
     justify-content: center; /* Centre horizontalement */
     text-align: center; /* Centre le texte */
-    position: relative; /* Permet la fusion entre header et accueil */
+    position: fixed; /* Rend le header fixe en haut de la page */
+    width: 100%; /* S'étend sur toute la largeur */
+    z-index: 1; /* S'assurer que le contenu est visible */
+    padding: 10px 20px;
+}
+
+                                                            /* Style pour les box individuelles */
+.projet, form {
+    backdrop-filter: blur(10px); /* Applique un flou */
+    padding: 20px;
+    border-radius: 10px; /* Bordures arrondies */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    background-color: rgba(255, 255, 255, 0.465); /* Très léger fond semi-transparent */
+    backdrop-filter: blur(50px); /* Appliquer un flou très fort sur l'arrière-plan */
+    z-index: 2; /* S'assurer que le contenu est visible */
 }
 
 nav ul {
     list-style: none; /* Retire les puces de la liste */
     padding: 0;
     display: flex; /* Affiche les éléments de navigation en ligne */
+    justify-content: space-around;
     gap: 20px; /* Espacement entre les liens */
 }
 
@@ -146,9 +208,7 @@ button:hover {
 }
 
 footer {
-    background: linear-gradient(90deg, #a53cdd, #07d896, #e73969, #a53cdd); /* Gradient aligné avec le curseur */
-    background-size: 300% 300%; /* Doit correspondre à l'animation du curseur */
-    transition: background-position 0.3s ease; /* Transition pour l'effet visuel */
+    transition: background-position 0.1s ease; /* Transition pour l'effet visuel */
     height: 3vh; /* Prend toute la hauteur de la fenêtre */
     display: flex; /* Pour centrer le contenu */
     align-items: center; /* Centre verticalement */
