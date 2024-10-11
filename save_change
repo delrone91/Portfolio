@@ -104,3 +104,14 @@
                 const gradientY = e.clientY / window.innerHeight * 100; // Calcule la position du dégradé Y
                 section.style.backgroundPosition = `${gradientX}% ${gradientY}%`; // Met à jour la position du dégradé pour chaque section
             });
+
+#contact {
+    background: linear-gradient(90deg, #a53cdd, #07d896, #e73969, #a53cdd); /* Gradient aligné avec le curseur */
+    background-size: 300% 300%; /* Doit correspondre à l'animation du curseur */
+    transition: background-position 0.3s ease; /* Transition pour l'effet visuel */
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    display: flex; /* Pour centrer le contenu */
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    text-align: center; /* Centre le texte */
+}
