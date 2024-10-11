@@ -90,7 +90,7 @@ document.addEventListener('mousemove', (e) => {
     const y = e.clientY / window.innerHeight * 100; // Récupère la position Y normalisée en %
 
     document.querySelectorAll('section, header, footer').forEach(section => {
-        section.style.backgroundSize = '300% 300%'; // Assurez-vous que le background est suffisamment grand pour voir le mouvement
+        section.style.backgroundSize = '250% 250%'; // Assurez-vous que le background est suffisamment grand pour voir le mouvement
         section.style.backgroundPosition = `${x}% ${y}%`; // Met à jour la position du dégradé
     });
 });
