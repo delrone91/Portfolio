@@ -61,6 +61,7 @@ currentColors.push(newColor);
 return currentColors;
 }
 
+/*
 // Fonction pour appliquer un dégradé à tous les éléments (header, footer, sections)
 function applyGradientToAllElements(gradientColors) {
     const gradient = `linear-gradient(90deg, ${gradientColors.join(', ')})`;
@@ -70,6 +71,17 @@ function applyGradientToAllElements(gradientColors) {
         element.style.backgroundImage = gradient;
     });
 }
+*/
+
+function applyGradientToAllElements(gradientColors) {
+    const gradient = `linear-gradient(90deg, ${gradientColors.join(', ')})`;
+    const overlay = document.querySelector('#background-overlay');
+
+    if (overlay) {
+        overlay.style.backgroundImage = gradient;
+    }
+}
+
 
 // Initialisation du premier dégradé et application
 let currentGradientColors = generateGradient();
@@ -82,8 +94,9 @@ function updateGradients() {
 }
 
 // Mettre à jour les couleurs toutes les 15 secondes
-setInterval(updateGradients, 15000);
+setInterval(updateGradients, 10000);
 
+/*
 // Fonction pour suivre la souris et ajuster la position du dégradé
 document.addEventListener('mousemove', (e) => {
     const x = e.clientX / window.innerWidth * 100; // Récupère la position X normalisée en %
@@ -93,6 +106,20 @@ document.addEventListener('mousemove', (e) => {
         section.style.backgroundSize = '250% 250%'; // Assurez-vous que le background est suffisamment grand pour voir le mouvement
         section.style.backgroundPosition = `${x}% ${y}%`; // Met à jour la position du dégradé
     });
+});
+*/
+
+// Fonction pour suivre la souris et ajuster la position du dégradé sur #background-overlay
+document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth) * 100; // Récupère la position X normalisée en %
+    const y = (e.clientY / window.innerHeight) * 100; // Récupère la position Y normalisée en %
+
+    // Cibler uniquement #background-overlay pour le déplacement du dégradé
+    const backgroundOverlay = document.querySelector('#background-overlay');
+    if (backgroundOverlay) {
+        backgroundOverlay.style.backgroundSize = '250% 250%'; // Taille du background pour l'effet
+        backgroundOverlay.style.backgroundPosition = `${x}% ${y}%`; // Met à jour la position du dégradé en fonction de la souris
+    }
 });
 
 
