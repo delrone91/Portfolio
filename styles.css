@@ -177,6 +177,10 @@ nav ul li a:hover {
     transition: transform 0.1s ease;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 /* Animation pour le gradient */
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
