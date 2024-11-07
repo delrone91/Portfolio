@@ -32,44 +32,44 @@
         </section>
 
         <!-- Section À propos -->
+
         <section id="a-propos">
             <h2>À propos de moi</h2>
-            <p>Je suis étudiant en BUT informatique à l'Université Sorbonne Paris Nord. 
-                J'ai un fort intérêt pour le numérique et les énigmes algorithmiques. 
-                Mon parcours universitaire m'a donné une bonne compréhension de l'informatique et un esprit critique développé. 
-                J'ai une préférence pour le domaine du web, où je cherche des solutions innovantes et intéressantes pour progresser. 
-                J'aime particulièrement le développement web et les algorithmes, car ils combinent créativité et logique.
-            </p>
-
-            <h3>Mon parcours et mes objectifs</h3>
-            <p>Mon objectif est de devenir un développeur web compétent, et éventuellement de me spécialiser dans le développement de jeux vidéo.
-                Je suis motivé par la réalisation de projets professionnels et personnels dans ces domaines. 
-                Mon enthousiasme et ma soif d'apprendre me poussent à toujours chercher à m'améliorer et à innover.
-            </p>
-
-            <h3>Mes compétences techniques</h3>
-            <ul>
-                <li>Programmation en Python et JavaScript</li>
-                <li>Résolution d'algorithmes complexes</li>
-                <li>Développement web (HTML, CSS, JavaScript)</li>
-                <li>Test de logiciels et mise en place de tests automatisés</li>
-                <li>Création d'applications et scripts d'automatisation en Python</li>
-                <li>Conception d'algorithmes de tri et de recherche</li>
-            </ul>
-
-            <h3>Qualités personnelles</h3>
-            <p>Je suis reconnu pour ma capacité à communiquer efficacement, 
-                ce qui me permet de travailler en équipe et de partager mes idées clairement. Je suis aussi autonome, 
-                ce qui m'aide à mener des projets de manière indépendante. Enfin, 
-                ma grande capacité d'écoute me permet de comprendre les besoins des autres et de collaborer efficacement.
-            </p>
-
-            <h3>Technologies qui m'intéressent</h3>
-            <p>Les nouvelles technologies, comme l'intelligence artificielle (IA) et la réalité virtuelle (VR), 
-                m'intéressent particulièrement. Je vois en ces technologies des innovations majeures qui transforment de nombreux secteurs. 
-                Par exemple, l'IA améliore les processus automatisés, tandis que la VR ouvre la porte à des expériences immersives uniques.
-            </p>
+            
+            <div class="card large">
+                <h3>Présentation</h3>
+                <p>Je suis étudiant en BUT informatique à l'Université Sorbonne Paris Nord. J'ai un fort intérêt pour le numérique et les énigmes algorithmiques...</p>
+            </div>
+        
+            <div class="card small skewed">
+                <h3>Mon parcours et mes objectifs</h3>
+                <p>Mon objectif est de devenir un développeur web compétent, et éventuellement de me spécialiser dans le développement de jeux vidéo...</p>
+            </div>
+        
+            <div class="card large">
+                <h3>Mes compétences techniques</h3>
+                <ul>
+                    <li>Programmation en Python et JavaScript</li>
+                    <li>Résolution d'algorithmes complexes</li>
+                    <li>Développement web (HTML, CSS, JavaScript)</li>
+                    <li>Test de logiciels et mise en place de tests automatisés</li>
+                    <li>Création d'applications et scripts d'automatisation en Python</li>
+                    <li>Conception d'algorithmes de tri et de recherche</li>
+                </ul>
+            </div>
+        
+            <div class="card small skewed">
+                <h3>Qualités personnelles</h3>
+                <p>Je suis reconnu pour ma capacité à communiquer efficacement...</p>
+            </div>
+        
+            <div class="card large">
+                <h3>Technologies qui m'intéressent</h3>
+                <p>Les nouvelles technologies, comme l'intelligence artificielle (IA) et la réalité virtuelle (VR), m'intéressent particulièrement...</p>
+            </div>
+        
         </section>
+        
 
         <!-- Section Projets -->
         <section id="projets">
@@ -94,24 +94,20 @@
         <!-- Section Contact -->
         <section id="contact">
             <h2>Contactez-moi</h2>
-            <p>Vous souhaitez en savoir plus ou collaborer avec moi ? N'hésitez pas à me contacter via le formulaire ci-dessous ou en utilisant mes coordonnées.</p>
+            <p>Vous souhaitez en savoir plus ou collaborer avec moi ? </p>
+            <p>Hésitez pas à me contacter via le formulaire ci-dessous ou en utilisant mes coordonnées.</p>
 
-            <form>
-                <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" required>
-
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message :</label>
-                <textarea id="message" name="message" required></textarea>
-
+            <form class="contact-form">
+                <h3>Contactez-moi</h3>
+                <input type="text" name="name" placeholder="Votre nom">
+                <input type="email" name="email" placeholder="Votre email">
+                <textarea name="message" placeholder="Votre message"></textarea>
                 <button type="submit">Envoyer</button>
             </form>
 
             <h3>Informations de contact</h3>
             <p>Cherry Delrone</p>
-            <p>Email : delrone98@gmail.com</p>
+            <p>Email : delronev2@gmail.com</p>
         </section>
     </main>
 
