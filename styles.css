@@ -19,6 +19,7 @@ a, button, input, textarea, label {
     cursor: none;
 }
 
+
 /* Styles communs des sections */
 section {
     display: flex;
@@ -42,7 +43,7 @@ section {
     z-index: 0; /* Envoie ce fond derrière les autres éléments */
 }
 
-#contact, #projets, #a-propos, #accueil {
+#contact, #projets, #accueil {
     justify-content: center;
 }
 
@@ -87,7 +88,7 @@ footer {
 
 
 /* Styles des éléments internes */
-#contact form, .projet {
+.projet {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -97,41 +98,23 @@ footer {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.465);
+    transition: transform 0.3s ease;
 }
 
-#contact form input,
-#contact form textarea {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
+    /* Animation pour l’effet de mouvement */
+.projet:hover {
+    transform: translateY(-5px) scale(1.05);
 }
 
-#contact form label {
-    margin-bottom: 5px;
-}
-
-#contact form button {
-    padding: 10px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
 
 #projets .projet {
     max-width: 800px;
     margin-bottom: 20px;
 }
 
-#a-propos h3 {
-    margin-top: 20px;
-}
-
 #accueil h1 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 #accueil p {
@@ -193,16 +176,98 @@ section h1, section h2 {
     color: #fff;
 }
 
-/* Style des boutons */
-button {
-    background-color: rgba(74, 74, 74, 0.8);
-    color: #fff;
-    padding: 0.75rem 1.5rem;
+/* Mise en forme de la section principale */
+#a-propos {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    position: relative;
+}
+
+#a-propos h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    width: 100%;
+}
+
+/* Styles des cartes */
+.card {
+    background-color: rgba(255, 255, 255, 0.465);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card h3 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+/* Variations de taille pour les cartes */
+.large {
+    flex: 1 1 45%;
+    max-width: 450px;
+}
+
+.small {
+    flex: 1 1 25%;
+    max-width: 350px;
+    transform: rotate(-2deg); /* Inclinée pour l'effet asymétrique */
+}
+
+.skewed:hover {
+    transform: rotate(2deg) scale(1.05); /* Survol inclinée */
+}
+
+.contact-form {
+    background-color: rgba(255, 255, 255, 0.465);
+    padding: 25px;
+    flex: 1 1 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.contact-form button {
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
     border: none;
-    margin-top: 1rem;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: rgba(51, 51, 51, 0.8);
+.contact-form button:hover {
+    background-color: #2980b9;
+}
+
+/* Animation pour l’effet de mouvement */
+.card:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+/* Responsive pour plus de flexibilité */
+@media (min-width: 768px) {
+    .card {
+        margin: 10px;
+    }
 }
