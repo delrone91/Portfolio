@@ -1,273 +1,627 @@
-/* Réinitialisation des styles */
+/* styles.css */
+
+/* ------------------------------------- */
+/*  1. Réinitialisation et Styles Globaux */
+/* ------------------------------------- */
+
+/* --- Réinitialisation --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    font: 1.7rem 'Roboto', Arial, sans-serif; /* Raccourci pour font-size et font-family */
     color: #333;
+    background-color: #f7f7f7;
     display: flex;
     flex-direction: column;
-    cursor: none; /* Cache le curseur par défaut */
+    cursor: none;
 }
 
-/* Empêche le curseur par défaut sur liens, boutons, inputs, textareas et labels */
-a, button, input, textarea, label {
+/* Curseur caché sur éléments interactifs */
+a, button, input, textarea, label, nav ul li a {
     cursor: none;
 }
 
 
-/* Styles communs des sections */
-section {
-    display: flex;
-    flex-direction: column;
-    transition: background-position 0.1s ease;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    text-align: center;
-    z-index: 1;                             /* Ici pour les nuance de blanc */
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.70);
+/* -------------------------- */
+/*  2. Curseur Personnalisé   */
+/* -------------------------- */
+
+#custom-cursor {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+
+    /* Gradient animé avec couleurs spécifiques */
+    background-image: linear-gradient(45deg, #311b92, #008080, #ffeb3b, #222222, #311b92, #008080);
+    background-size: 400% 400%; /* Taille du fond pour l'animation (plus grand pour un mouvement plus ample) */
+    animation: gradient-cursor-motion 10s ease-in-out infinite alternate; /* Animation plus lente et douce, effet "boomerang" */
+
+    mix-blend-mode: difference; /* Inversion de couleur SOUS le curseur */
+    transition: transform 0.15s ease, border 0.15s ease;
+    border: 2px solid rgba(255, 255, 255, 0.7); /* Bordure blanche subtile */
 }
 
+#custom-cursor.active {
+    transform: translate(-50%, -50%) scale(0.7); /* Taille réduite au clic */
+    border: 2px solid rgba(255, 255, 255, 0.9); /* Bordure légèrement plus visible au clic */
+}
+
+/* Animation du gradient pour le curseur - Boomerang Doux */
+@keyframes gradient-cursor-motion {
+    0% {
+        background-position: 0% 50%; /* Départ au centre gauche */
+    }
+    100% {
+        background-position: 100% 50%; /* Arrivée au centre droit */
+    }
+}
+
+
+/* -------------------------------- */
+/*  3. Fond Superposé & Dégradé     */
+/* -------------------------------- */
+
 #background-overlay {
-    position: relative;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0; /* Envoie ce fond derrière les autres éléments */
+    z-index: 1;
+    background-size: 200% 200%;
+    background-attachment: fixed;
 }
 
-#contact, #projets, #accueil {
-    justify-content: center;
-}
 
-#contact {
-    justify-content: space-evenly;
-}
-
-#projets {
-    justify-content: space-between;
-}
-
-#accueil {
-    padding: 50px 0;
-    /*z-index: 3;
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.70); */
-}
-
-header, footer {
-    transition: background-position 0.1s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    padding: 10px 20px;
-}
+/* ---------------------------- */
+/*  4. En-tête et Navigation    */
+/* ---------------------------- */
 
 header {
-    position: fixed;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 6vh;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-footer {
-    height: 3vh;
-    background-color: rgba(255, 255, 255, 0.70);
-    position: relative;
-}
-
-
-/* Styles des éléments internes */
-.projet {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 400px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.465);
-    transition: transform 0.3s ease;
 }
 
-    /* Animation pour l’effet de mouvement */
-.projet:hover {
-    transform: translateY(-5px) scale(1.05);
-}
-
-
-#projets .projet {
-    max-width: 800px;
-    margin-bottom: 20px;
-}
-
-#accueil h1 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-}
-
-#accueil p {
-    font-size: 1.2rem;
-    max-width: 600px;
-}
-
-/* Style du menu de navigation */
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: space-around;
-    gap: 20px;
+    justify-content: flex-start;
+    gap: 2rem;
 }
 
 nav ul li a {
-    color: #fff;
+    color: #555;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.7rem 1.2rem;
+    border-radius: 0.3rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-nav ul li a:hover {
-    background-color: rgba(148, 144, 144, 0.2);
-    color: #ff0000;
-    border-radius: 5px;
-}
-
-/* Style du curseur personnalisé */
-#custom-cursor {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, #0000ff, #ff0000, #00ff00, #0000ff, #ff0000);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.1s ease;
-}
-
-html {
-    scroll-behavior: smooth;
-  }
-
-/* Animation pour le gradient */
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Styles pour les titres dans les sections */
-section h1, section h2 {
-    color: #fff;
-}
-
-/* Mise en forme de la section principale */
-#a-propos {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    position: relative;
-}
-
-#a-propos h2 {
-    text-align: center;
-    margin-bottom: 40px;
+nav ul li a:hover,
+nav ul li a:focus {
     color: #333;
-    width: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Styles des cartes */
-.card {
-    background-color: rgba(255, 255, 255, 0.465);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
+nav ul li a[aria-current="page"] {
+    color: #333;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+/* ------------------ */
+/*  5. Sections        */
+/* ------------------ */
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 80vh;
+    padding: 5rem 3rem;
+    margin-bottom: 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.05);
     position: relative;
-    overflow: hidden;
 }
 
-.card h3 {
-    color: #2c3e50;
-    margin-top: 0;
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: 200% 200%;
+    background-position: center;
+    opacity: 0.05;
+    z-index: -1;
+    border-radius: inherit;
 }
 
-/* Variations de taille pour les cartes */
-.large {
-    flex: 1 1 45%;
-    max-width: 450px;
+section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    display: inline-block;
 }
 
-.small {
-    flex: 1 1 25%;
-    max-width: 350px;
-    transform: rotate(-2deg); /* Inclinée pour l'effet asymétrique */
+section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60%;
+    height: 3px;
+    background-color: #007bff;
 }
 
-.skewed:hover {
-    transform: rotate(2deg) scale(1.05); /* Survol inclinée */
+section h3 {
+    font-size: 1.6rem;
+    color: #444;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
-.contact-form {
-    background-color: rgba(255, 255, 255, 0.465);
-    padding: 25px;
-    flex: 1 1 100%;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-    margin-top: 20px;
+section p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
-.contact-form input,
-.contact-form textarea {
+section ul {
+    list-style: square;
+    padding-left: 1.5rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+section ul li {
+    margin-bottom: 0.5rem;
+}
+
+
+/* --------------------- */
+/*  6. Section Accueil    */
+/* --------------------- */
+
+#accueil {
+    min-height: 90vh;
+    text-align: left;
+    justify-content: center;
+    padding-top: 8rem;
+}
+
+#accueil h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #333;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+}
+
+#accueil p {
+    font-size: 1.2rem;
+    max-width: 750px;
+    color: #555;
+}
+
+
+/* ----------------------- */
+/*  7. Sections Standard   */
+/*     (À Propos, etc.)    */
+/* ----------------------- */
+
+#a-propos,
+#projets,
+#contact {
+    text-align: left;
+    padding-top: 4rem;
+}
+
+
+/* --------------------- */
+/*  8. Section Projets    */
+/* --------------------- */
+
+#projets {
+    justify-content: flex-start;
+}
+
+.projet {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    border-radius: 0.4rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
     width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1em;
 }
 
-.contact-form button {
-    padding: 10px;
-    background-color: #3498db;
-    color: white;
+.projet h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.projet p {
+    color: #555;
+}
+
+.projet button.voir-projet {
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    padding: 0.8rem 1.8rem;
+    border-radius: 0.3rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1.5rem;
 }
 
-.contact-form button:hover {
-    background-color: #2980b9;
+.projet button.voir-projet:hover,
+.projet button.voir-projet:focus {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-/* Animation pour l’effet de mouvement */
-.card:hover {
-    transform: translateY(-5px) scale(1.05);
+
+/* --------------------- */
+/*  9. Section Contact    */
+/* --------------------- */
+
+#contact {
+    justify-content: center;
+    text-align: center;
 }
 
-/* Responsive pour plus de flexibilité */
-@media (min-width: 768px) {
-    .card {
-        margin: 10px;
+#contact h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+#contact p {
+    max-width: 600px;
+    margin: 0 auto 2rem; /* Raccourci pour margin-left, margin-right, margin-bottom */
+    color: #555;
+}
+
+#contact form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 550px;
+    width: 100%;
+    padding: 2.5rem;
+    border-radius: 0.4rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+#contact form label {
+    font-weight: 500;
+    color: #444;
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+#contact form input,
+#contact form textarea {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    background-color: #fff;
+    color: #333;
+    font-size: 1rem;
+    width: 100%;
+}
+
+#contact form textarea {
+    min-height: 150px;
+}
+
+#contact form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    align-self: flex-start;
+}
+
+#contact form button[type="submit"]:hover,
+#contact form button[type="submit"]:focus {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#form-message {
+    margin-top: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: #007bff;
+}
+
+.success {
+    color: #007bff;
+}
+
+.error {
+    color: #ff6b6b;
+}
+
+#contact h3 {
+    text-align: center;
+}
+
+#contact .contact-info {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+#contact .contact-info p {
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+#contact .contact-info a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#contact .contact-info a:hover,
+#contact .contact-info a:focus {
+    color: #333;
+    text-decoration: underline;
+}
+
+
+/* -------------------- */
+/*  10. Pied de Page     */
+/* -------------------- */
+
+footer {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    text-align: center;
+    color: #555;
+    border-top: 1px solid #eee;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+
+/* ------------------ */
+/*  11. Modales        */
+/* ------------------ */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0; /* Correction: left: 0 au lieu de right: 0 pour occuper toute la largeur */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    color: #333;
+}
+
+.modal-content h4 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.modal-content p {
+    color: #555;
+}
+
+
+.close-button {
+    color: #888;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.8rem;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+
+/* --------------------------------------- */
+/*  12. Media Queries pour la Responsivité */
+/* --------------------------------------- */
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    nav ul li a {
+        padding: 0.6rem 1rem;
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 3rem 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #accueil {
+        padding-top: 6rem;
+        text-align: center;
+    }
+    #accueil h1 {
+        font-size: 2.8rem;
+        text-align: center;
+    }
+    #accueil p {
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    section h2 {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 1.8rem;
+    }
+    section h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+    }
+
+    section h3 {
+        font-size: 1.4rem;
+    }
+    section p {
+        font-size: 1rem;
+    }
+
+    .projet {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .projet h3 {
+        font-size: 1.4rem;
+    }
+
+    #contact form {
+        padding: 2rem;
+        gap: 1rem;
+    }
+    #contact form label {
+        font-size: 1rem;
+    }
+    #contact form input,
+    #contact form textarea {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    #contact form button[type="submit"] {
+        padding: 0.9rem 1.8rem;
+        font-size: 1rem;
+    }
+
+    .modal-content {
+        margin: 10% auto;
+        padding: 1.5rem;
+    }
+    .modal-content h4 {
+        font-size: 1.6rem;
+    }
+    .modal-content p {
+        font-size: 1rem;
+    }
+    .close-button {
+        font-size: 1.8rem;
+        top: 0.3rem;
+        right: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 2.5rem 1.5rem;
+    }
+
+    #accueil h1 {
+        font-size: 2.4rem;
+    }
+    #accueil p {
+        font-size: 1rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    section h2::after {
+        width: 90%;
+    }
+
+    section h3 {
+        font-size: 1.3rem;
+    }
+
+    .projet h3 {
+        font-size: 1.3rem;
+    }
+
+    #contact form {
+        padding: 1.5rem;
+    }
+
+    .modal-content {
+        padding: 1rem;
+        margin: 15% auto;
+    }
+    .modal-content h4 {
+        font-size: 1.4rem;
+    }
+    .modal-content p {
+        font-size: 0.9rem;
+    }
+    .close-button {
+        font-size: 1.6rem;
     }
 }
