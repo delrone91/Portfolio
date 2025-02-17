@@ -1,4 +1,3 @@
-
 // Création d'un curseur personnalisé
 const cursor = document.createElement('div');
 cursor.id = 'custom-cursor'; // ID pour le curseur
@@ -17,11 +16,6 @@ document.addEventListener('mousemove', (e) => {
     // Changer la couleur du texte des liens en fonction de la souris
     document.querySelectorAll('nav ul li a').forEach(link => {
         link.style.color = color; // Applique la couleur calculée à chaque lien
-    });
-
-    // Appliquer la couleur de texte dynamique aux sections
-    document.querySelectorAll('h1, h2').forEach(title => {
-        title.style.color = color; // Change la couleur des titres
     });
 });
 
@@ -50,28 +44,16 @@ function generateGradient() {
 
 // Fonction pour générer un dégradé mis à jour en supprimant la première couleur et en ajoutant une nouvelle à la fin
 function generateUpdatedGradient(currentColors) {
-// Retirer la première couleur (celle de gauche)
-currentColors.shift();
+    // Retirer la première couleur (celle de gauche)
+    currentColors.shift();
 
-// Ajouter une nouvelle couleur aléatoire à la fin
-const newColor = colors[Math.floor(Math.random() * colors.length)];
-currentColors.push(newColor);
+    // Ajouter une nouvelle couleur aléatoire à la fin
+    const newColor = colors[Math.floor(Math.random() * colors.length)];
+    currentColors.push(newColor);
 
-// Reconstruire le dégradé
-return currentColors;
+    // Reconstruire le dégradé
+    return currentColors;
 }
-
-/*
-// Fonction pour appliquer un dégradé à tous les éléments (header, footer, sections)
-function applyGradientToAllElements(gradientColors) {
-    const gradient = `linear-gradient(90deg, ${gradientColors.join(', ')})`;
-    const elements = document.querySelectorAll('section, header, footer');
-
-    elements.forEach(element => {
-        element.style.backgroundImage = gradient;
-    });
-}
-*/
 
 function applyGradientToAllElements(gradientColors) {
     const gradient = `linear-gradient(90deg, ${gradientColors.join(', ')})`;
@@ -81,7 +63,6 @@ function applyGradientToAllElements(gradientColors) {
         overlay.style.backgroundImage = gradient;
     }
 }
-
 
 // Initialisation du premier dégradé et application
 let currentGradientColors = generateGradient();
@@ -96,19 +77,6 @@ function updateGradients() {
 // Mettre à jour les couleurs toutes les 15 secondes
 setInterval(updateGradients, 10000);
 
-/*
-// Fonction pour suivre la souris et ajuster la position du dégradé
-document.addEventListener('mousemove', (e) => {
-    const x = e.clientX / window.innerWidth * 100; // Récupère la position X normalisée en %
-    const y = e.clientY / window.innerHeight * 100; // Récupère la position Y normalisée en %
-
-    document.querySelectorAll('section, header, footer').forEach(section => {
-        section.style.backgroundSize = '250% 250%'; // Assurez-vous que le background est suffisamment grand pour voir le mouvement
-        section.style.backgroundPosition = `${x}% ${y}%`; // Met à jour la position du dégradé
-    });
-});
-*/
-
 // Fonction pour suivre la souris et ajuster la position du dégradé sur #background-overlay
 document.addEventListener('mousemove', (e) => {
     const x = (e.clientX / window.innerWidth) * 100; // Récupère la position X normalisée en %
@@ -122,6 +90,69 @@ document.addEventListener('mousemove', (e) => {
     }
 });
 
+// Fonction pour gérer l'ouverture et la fermeture des modales
+function handleModals() {
+    const modalButtons = document.querySelectorAll('.voir-projet');
+    const closeButtons = document.querySelectorAll('.close-button');
 
-// Appliquer les gradients dès le chargement de la page
-window.addEventListener("DOMContentLoaded", applyRandomGradients);
+    modalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modalId = button.dataset.projet;
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+        });
+    });
+
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('.modal');
+            modal.style.display = 'none';
+        });
+    });
+
+    // Fermer la modale si l'utilisateur clique en dehors
+    window.addEventListener('click', (event) => {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    });
+}
+
+// Fonction pour gérer la soumission du formulaire de contact
+function handleContactForm() {
+    const form = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                // Réinitialiser le formulaire
+                form.reset();
+                formMessage.textContent = 'Message envoyé avec succès !';
+                formMessage.className = 'success';
+            } else {
+                formMessage.textContent = 'Une erreur est survenue lors de l\'envoi du message.';
+                formMessage.className = 'error';
+            }
+        } catch (error) {
+            formMessage.textContent = 'Une erreur est survenue lors de l\'envoi du message.';
+            formMessage.className = 'error';
+        }
+    });
+}
+
+// Appliquer les gradients et gérer les modales dès le chargement de la page
+window.addEventListener("DOMContentLoaded", () => {
+    applyGradientToAllElements(currentGradientColors);
+    handleModals();
+    // handleContactForm(); // Décommentez cette ligne si vous avez un backend pour traiter le formulaire
+});
