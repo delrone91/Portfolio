@@ -1,0 +1,153 @@
+/* ==========================================================================
+   Media Queries pour la Responsivité
+   ========================================================================== */
+
+   @media (max-width: 768px) {
+    :root {
+        --font-size-hero: 2.8rem;
+        --font-size-huge: 2rem;
+        --font-size-xxl: 1.6rem;
+        --font-size-xl: 1.4rem;
+    }
+    
+    header {
+        padding: 1rem 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    nav ul li a {
+        padding: 0.6rem 1rem;
+        font-size: var(--font-size-sm);
+    }
+
+    section {
+        padding: 3rem 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #accueil {
+        padding-top: 6rem;
+        text-align: center;
+    }
+    
+    #accueil h1 {
+        text-align: center;
+    }
+    
+    #accueil h1::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    #accueil p {
+        font-size: var(--font-size-md);
+        text-align: center;
+    }
+
+    section h2 {
+        text-align: center;
+        margin-bottom: 1.8rem;
+    }
+    
+    section h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+    }
+
+    .projet {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    #contact form {
+        padding: 2rem;
+        gap: 1rem;
+    }
+    
+    #contact form label {
+        font-size: var(--font-size-sm);
+    }
+    
+    #contact form input,
+    #contact form textarea {
+        padding: 0.8rem;
+        font-size: var(--font-size-xs);
+    }
+    
+    #contact form button[type="submit"] {
+        padding: 0.9rem 1.8rem;
+        font-size: var(--font-size-sm);
+    }
+
+    .modal-content {
+        margin: 10% auto;
+        padding: 1.5rem;
+    }
+    
+    .close-button {
+        font-size: 1.8rem;
+        top: 0.3rem;
+        right: 0.5rem;
+    }
+    
+    #theme-toggle {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .sun-icon svg,
+    .moon-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --font-size-hero: 2.4rem;
+        --font-size-huge: 1.8rem;
+        --font-size-xxl: 1.4rem;
+        --font-size-xl: 1.3rem;
+    }
+    
+    section {
+        padding: 2.5rem 1.5rem;
+    }
+
+    section h2::after {
+        width: 90%;
+    }
+
+    .projet {
+        padding: 1.2rem;
+    }
+
+    #contact form {
+        padding: 1.5rem;
+    }
+
+    .modal-content {
+        padding: 1rem;
+        margin: 15% auto;
+        width: 90%;
+    }
+    
+    .close-button {
+        font-size: 1.6rem;
+    }
+    
+    #theme-toggle {
+        width: 35px;
+        height: 35px;
+        bottom: 10px;
+        right: 10px;
+    }
+}

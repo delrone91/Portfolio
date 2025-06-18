@@ -1,0 +1,91 @@
+/* ==========================================================================
+   Gestion des Thèmes - Mode Sombre et Bouton de Basculement
+   ========================================================================== */
+
+/* Mode sombre */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --secondary-text-color: #bbb;
+    --accent-color: #5e9eff;
+    --accent-hover: #80b5ff;
+    --card-bg: rgba(30, 30, 30, 0.95);
+    --header-bg: rgba(18, 18, 18, 0.95);
+    --card-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+    --divider-color: #333;
+    --input-border: #444;
+    --success-color: #5e9eff;
+    --error-color: #ff7b7b;
+    --info-color: #4cd3e9;
+    --button-text: #fff;
+    --modal-overlay: rgba(0, 0, 0, 0.7);
+    --cursor-border: rgba(255, 255, 255, 0.7);
+    --footer-bg: rgba(18, 18, 18, 0.95);
+}
+
+/* Bouton de Basculement du Thème */
+#theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--card-bg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: var(--z-tooltip);
+    transition: background-color var(--transition-medium), transform var(--transition-fast), box-shadow var(--transition-medium);
+}
+
+.dark-mode #theme-toggle {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#theme-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode #theme-toggle:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.sun-icon,
+.moon-icon {
+    position: absolute;
+    transition: transform var(--transition-medium), opacity var(--transition-medium);
+}
+
+.sun-icon svg,
+.moon-icon svg {
+    stroke: var(--text-color);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke var(--transition-medium);
+}
+
+.sun-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.moon-icon {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+#theme-toggle.dark .sun-icon {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+#theme-toggle.dark .moon-icon {
+    opacity: 1;
+    transform: scale(1);
+}

@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Curseur Personnalisé et Follower
+   ========================================================================== */
+
+   #custom-cursor {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    pointer-events: none;
+    z-index: var(--z-cursor);
+    border-radius: 50%;
+    opacity: 0;
+    transition: transform var(--transition-fast), opacity var(--transition-medium);
+
+    /* Gradient animé avec couleurs spécifiques */
+    background-image: linear-gradient(45deg, #311b92, #008080, #ffeb3b, #222222, #311b92, #008080);
+    background-size: 400% 400%;
+    animation: gradient-cursor-motion 10s ease-in-out infinite alternate;
+
+    mix-blend-mode: difference;
+    border: 2px solid var(--cursor-border);
+    transform: translate(-50%, -50%);
+}
+
+#cursor-follower {
+    width: 8px;
+    height: 8px;
+    position: fixed;
+    pointer-events: none;
+    z-index: var(--z-cursor);
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, opacity var(--transition-medium);
+}
+
+#custom-cursor.loaded,
+#cursor-follower.loaded,
+#custom-cursor.visible,
+#cursor-follower.visible {
+    opacity: 1;
+}
+
+#custom-cursor.clicked {
+    transform: translate(-50%, -50%) scale(0.7);
+    border-width: 3px;
+}
+
+#cursor-follower.clicked {
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+#custom-cursor.link-hover {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-image: linear-gradient(45deg, var(--accent-color), var(--accent-hover));
+    animation: pulse 1.5s infinite alternate;
+}
+
+#cursor-follower.link-hover {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+#custom-cursor.button-hover {
+    transform: translate(-50%, -50%) scale(1.8);
+    background-image: linear-gradient(45deg, var(--accent-color), var(--accent-hover));
+    border-color: transparent;
+}
+
+#cursor-follower.button-hover {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+#custom-cursor.input-hover {
+    transform: translate(-50%, -50%) scale(1.2);
+    width: 2px;
+    height: 25px;
+    border-radius: 1px;
+    background: var(--text-color);
+    animation: blink 1s infinite;
+}
+
+#cursor-follower.input-hover {
+    opacity: 0;
+}

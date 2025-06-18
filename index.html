@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Portfolio - Delrone Cherry</title>
+    <meta name="description" content="Découvrez le portfolio de Delrone Cherry, étudiant en BUT Informatique passionné par le développement web et les algorithmes. Explorez ses projets, compétences, et contactez-le pour collaborer.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles CSS modulaires -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/cursor.css">
+    <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Méta-tags pour les réseaux sociaux -->
+    <meta property="og:title" content="Portfolio - Delrone Cherry">
+    <meta property="og:description" content="Développeur web passionné et étudiant en BUT Informatique">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#007bff">
+</head>
+
+<body>
+    <!-- Overlay de fond - maintenant en dehors de la structure principale -->
+    <div id="background-overlay"></div>
+    
+    <header>
+        <nav aria-label="Menu principal">
+            <ul role="navigation">
+                <li><a href="#accueil" aria-current="page">Accueil</a></li>
+                <li><a href="#a-propos">À propos</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section Accueil -->
+        <section id="accueil" class="animate-section">
+            <h1>Bienvenue sur mon portfolio</h1>
+            <p>Je suis Delrone Cherry, étudiant en BUT informatique à l'Université Sorbonne Paris Nord.
+                Passionné par le développement web et les énigmes algorithmiques, mon objectif est de devenir un
+                développeur web compétent,
+                avec un intérêt particulier pour le jeu vidéo. Découvrez mes projets, mes compétences et comment me
+                contacter ci-dessous.
+            </p>
+        </section>
+
+        <!-- Section À propos -->
+        <section id="a-propos" class="animate-section">
+            <h2>À propos de moi</h2>
+            <p>Je suis étudiant en BUT informatique à l'Université Sorbonne Paris Nord.
+                J'ai un fort intérêt pour le numérique et les énigmes algorithmiques.
+                Mon parcours universitaire m'a donné une bonne compréhension de l'informatique et un esprit critique
+                développé.
+                J'ai une préférence pour le domaine du web, où je cherche des solutions innovantes et intéressantes
+                pour progresser.
+                J'aime particulièrement le développement web et les algorithmes, car ils combinent créativité et
+                logique.
+            </p>
+
+            <h3>Mon parcours et mes objectifs</h3>
+            <p>Mon objectif est de devenir un développeur web compétent, et éventuellement de me spécialiser dans le
+                développement de jeux vidéo.
+                Je suis motivé par la réalisation de projets professionnels et personnels dans ces domaines.
+                Mon enthousiasme et ma soif d'apprendre me poussent à toujours chercher à m'améliorer et à innover.
+            </p>
+
+            <h3>Mes compétences techniques</h3>
+            <ul>
+                <li>Programmation en Python et JavaScript</li>
+                <li>Résolution d'algorithmes complexes</li>
+                <li>Développement web (HTML, CSS, JavaScript)</li>
+                <li>Test de logiciels et mise en place de tests automatisés</li>
+                <li>Création d'applications et scripts d'automatisation en Python</li>
+                <li>Conception d'algorithmes de tri et de recherche</li>
+            </ul>
+
+            <h3>Qualités personnelles</h3>
+            <p>Je suis reconnu pour ma capacité à communiquer efficacement,
+                ce qui me permet de travailler en équipe et de partager mes idées clairement. Je suis aussi
+                autonome,
+                ce qui m'aide à mener des projets de manière indépendante. Enfin,
+                ma grande capacité d'écoute me permet de comprendre les besoins des autres et de collaborer
+                efficacement.
+            </p>
+
+            <h3>Technologies qui m'intéressent</h3>
+            <p>Les nouvelles technologies, comme l'intelligence artificielle (IA) et la réalité virtuelle (VR),
+                m'intéressent particulièrement. Je vois en ces technologies des innovations majeures qui
+                transforment de nombreux secteurs.
+                Par exemple, l'IA améliore les processus automatisés, tandis que la VR ouvre la porte à des
+                expériences immersives uniques.
+            </p>
+        </section>
+
+        <!-- Section Projets -->
+        <section id="projets" class="animate-section">
+            <h2>Mes projets</h2>
+
+            <div class="projet animate-section">
+                <h3>Projet 1 : Application Python de gestion de tâches</h3>
+                <p>Ce projet consistait à développer une application en Python pour gérer les tâches quotidiennes.
+                    J'ai intégré des fonctionnalités d'ajout, suppression, et modification de tâches, ainsi que la
+                    possibilité de trier les tâches par priorité ou par date d'échéance. Ce projet m'a permis
+                    d'améliorer mes compétences en Python, et de me familiariser avec les concepts de gestion de
+                    base de données.</p>
+                <button class="voir-projet" data-projet="projet1">Voir le projet</button>
+                <div id="projet1" class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">×</span>
+                        <h4>Application Python de gestion de tâches</h4>
+                        <p>Ce projet a été développé dans le cadre de ma formation en BUT Informatique. L'objectif était de créer une application permettant de gérer efficacement ses tâches quotidiennes.</p>
+                        <p><strong>Fonctionnalités principales :</strong></p>
+                        <ul>
+                            <li>Création, modification et suppression de tâches</li>
+                            <li>Assignation de priorités (haute, moyenne, basse)</li>
+                            <li>Définition de dates d'échéance</li>
+                            <li>Filtrage et tri des tâches selon différents critères</li>
+                            <li>Interface utilisateur intuitive et réactive</li>
+                            <li>Sauvegarde des données en base de données SQLite</li>
+                        </ul>
+                        <p><strong>Technologies utilisées :</strong> Python, Tkinter pour l'interface graphique, SQLite pour la base de données.</p>
+                        <p><strong>Compétences acquises :</strong> Programmation orientée objet, gestion de base de données, conception d'interface utilisateur, gestion des événements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projet animate-section">
+                <h3>Projet 2 : Site web interactif avec JavaScript</h3>
+                <p>J'ai créé un site web interactif utilisant HTML, CSS et JavaScript. Le site comprend une galerie
+                    d'images dynamique, des animations, et une fonctionnalité de formulaire de contact. Ce projet
+                    m'a permis de maîtriser les concepts de manipulation du DOM avec JavaScript, ainsi que
+                    d'améliorer mes compétences en responsive design pour assurer la compatibilité avec tous les
+                    appareils.</p>
+                <button class="voir-projet" data-projet="projet2">Voir le projet</button>
+                <div id="projet2" class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">×</span>
+                        <h4>Site web interactif avec JavaScript</h4>
+                        <p>Ce projet personnel visait à approfondir mes connaissances en développement front-end en créant un site web interactif et visuellement attrayant.</p>
+                        <p><strong>Caractéristiques principales :</strong></p>
+                        <ul>
+                            <li>Galerie d'images avec transitions fluides et filtres dynamiques</li>
+                            <li>Système de navigation par onglets entièrement en JavaScript</li>
+                            <li>Formulaire de contact avec validation en temps réel</li>
+                            <li>Animations déclenchées au défilement</li>
+                            <li>Design responsive optimisé pour tous les appareils</li>
+                            <li>Performances optimisées (chargement différé des images)</li>
+                        </ul>
+                        <p><strong>Technologies utilisées :</strong> HTML5, CSS3 (Flexbox, Grid), JavaScript (ES6+), aucun framework externe.</p>
+                        <p><strong>Compétences acquises :</strong> Manipulation avancée du DOM, animations CSS, responsive design, optimisation des performances.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projet animate-section">
+                <h3>Projet 3 : Automatisation de tests logiciels</h3>
+                <p>Dans ce projet, j'ai utilisé Python pour automatiser des tests de logiciels. J'ai mis en place
+                    des scripts de test automatisés pour vérifier la fonctionnalité d'une application avant son
+                    déploiement. Ce projet m'a apporté une grande expérience dans la gestion de la qualité
+                    logicielle, ainsi qu'une meilleure compréhension des méthodes de développement agile.</p>
+                <button class="voir-projet" data-projet="projet3">Voir le projet</button>
+                <div id="projet3" class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">×</span>
+                        <h4>Automatisation de tests logiciels</h4>
+                        <p>Ce projet a été réalisé dans le cadre d'un stage en entreprise. Il avait pour objectif d'améliorer le processus de test d'une application web en automatisant les tests répétitifs.</p>
+                        <p><strong>Réalisations :</strong></p>
+                        <ul>
+                            <li>Développement d'une suite de tests automatisés pour l'application web</li>
+                            <li>Mise en place d'un pipeline d'intégration continue</li>
+                            <li>Création de rapports de test détaillés et automatisés</li>
+                            <li>Réduction du temps de test manuel de 70%</li>
+                            <li>Documentation complète du processus de test</li>
+                        </ul>
+                        <p><strong>Technologies utilisées :</strong> Python, Selenium WebDriver, PyTest, Jenkins (CI/CD).</p>
+                        <p><strong>Compétences acquises :</strong> Test automatisé, intégration continue, méthodologies agiles, documentation technique.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" class="animate-section">
+            <h2>Contactez-moi</h2>
+            <p>Vous souhaitez en savoir plus ou collaborer avec moi ? N'hésitez pas à me contacter via le formulaire
+                ci-dessous ou en utilisant mes coordonnées.</p>
+
+            <form id="contact-form" action="#" method="POST">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Envoyer</button>
+            </form>
+
+            <div id="form-message"></div>
+
+            <h3>Informations de contact</h3>
+            <div class="contact-info">
+                <p>Cherry Delrone</p>
+                <p>Email : <a href="mailto:delrone98@gmail.com">delrone98@gmail.com</a></p>
+            </div>
+        </section>
+    
+        <footer>
+            <p>© 2024 Delrone Cherry. Tous droits réservés.</p>
+        </footer>
+    </main>
+
+    <!-- Scripts JavaScript modulaires -->
+    <script src="js/utils.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/scroll-animations.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/contact-form.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/parallax.js"></script>
+    <script src="js/page-load.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

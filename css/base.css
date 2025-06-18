@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Variables CSS et Réinitialisation
+   ========================================================================== */
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    /* Couleurs - Mode clair */
+    --bg-color: #f7f7f7;
+    --text-color: #333;
+    --secondary-text-color: #666;
+    --accent-color: #007bff;
+    --accent-hover: #0056b3;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --header-bg: rgba(255, 255, 255, 0.95);
+    --card-shadow: 0 3px 7px rgba(0, 0, 0, 0.05);
+    --divider-color: #eee;
+    --input-border: #ccc;
+    --success-color: #007bff;
+    --error-color: #ff6b6b;
+    --info-color: #17a2b8;
+    --button-text: #fff;
+    --modal-overlay: rgba(0, 0, 0, 0.4);
+    --cursor-border: rgba(255, 255, 255, 0.7);
+    --footer-bg: rgba(255, 255, 255, 0.95);
+
+    /* Espacement */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Arrondis */
+    --border-radius-sm: 0.3rem;
+    --border-radius-md: 0.4rem;
+    --border-radius-lg: 0.5rem;
+    
+    /* Typographie */
+    --font-size-xs: 0.9rem;
+    --font-size-sm: 1rem;
+    --font-size-md: 1.1rem;
+    --font-size-lg: 1.2rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 1.8rem;
+    --font-size-huge: 2.5rem;
+    --font-size-hero: 3.5rem;
+
+    /* Z-Index */
+    --z-back: -1;
+    --z-normal: 1;
+    --z-forward: 10;
+    --z-header: 100;
+    --z-modal: 1000;
+    --z-loader: 9000;
+    --z-tooltip: 9500;
+    --z-cursor: 10000;
+}
+
+html {
+    height: 100%;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    transition: background-color var(--transition-medium);
+}
+
+body {
+    min-height: 100%;
+    overflow-y: visible !important;
+    overflow-x: hidden;
+    font: 1.7rem 'Roboto', Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    cursor: none;
+    transition: color var(--transition-medium), background-color var(--transition-medium);
+    position: relative;
+}
+
+/* Curseur caché sur éléments interactifs */
+a, button, input, textarea, label, nav ul li a {
+    cursor: none;
+}
