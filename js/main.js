@@ -1,5 +1,5 @@
 // ====================================================
-// INITIALISATION DE TOUTES LES FONCTIONNALITÉS
+// INITIALISATION DE TOUTES LES FONCTIONNALITÉS - MIS À JOUR
 // ====================================================
 
 /**
@@ -38,6 +38,9 @@ function initializePortfolio() {
     // Initialise le gestionnaire d'effet parallaxe
     parallaxManager.init();
     
+    // Initialise la navigation fluide
+    initSmoothNavigation();
+    
     // Vérification supplémentaire après un court délai
     setTimeout(() => {
         document.body.style.overflow = 'auto';
@@ -46,6 +49,32 @@ function initializePortfolio() {
     
     // Log de confirmation pour le développement
     console.log('Portfolio initialisé avec succès!');
+}
+
+/**
+ * Initialise la navigation fluide vers les sections
+ */
+function initSmoothNavigation() {
+    const navLinks = document.querySelectorAll('nav ul li a[href^="#"]');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 }
 
 // Exécute l'initialisation lorsque le DOM est chargé

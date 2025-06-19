@@ -1,5 +1,5 @@
 // ====================================================
-// GESTIONNAIRE D'ANIMATIONS AU DÉFILEMENT
+// GESTIONNAIRE D'ANIMATIONS AU DÉFILEMENT - MIS À JOUR
 // ====================================================
 const scrollAnimationManager = {
     sections: null,
