@@ -159,7 +159,7 @@ section ul li {
 
 /* Section Accueil */
 #accueil {
-    min-height: 90vh;
+    min-height: 100vh;
     text-align: left;
     justify-content: center;
     padding-top: 8rem;
@@ -224,9 +224,13 @@ section ul li {
     transition: transform 0.1s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out;
     position: relative;
     overflow: hidden;
-    cursor: pointer;
+    cursor: none; /* Pas de curseur par défaut pour garder le curseur personnalisé */
     transform-style: preserve-3d;
     will-change: transform, background-color, box-shadow;
+}
+
+.intro-card *, .intro-card h3, .intro-card p, .intro-icon {
+    cursor: none; /* S'assure que tous les éléments enfants gardent le curseur personnalisé */
 }
 
 .intro-card::before {
@@ -245,10 +249,10 @@ section ul li {
     left: 100%;
 }
 
-/* Suppression de l'ancien effet hover au profit de l'interactivité JS 
+/* Suppression de l'ancien effet hover au profit de l'interactivité JS */
 .intro-card:hover {
-    /* Les effets sont maintenant gérés par JavaScript 
-} */
+    /* Les effets sont maintenant gérés par JavaScript */
+}
 
 .intro-icon {
     font-size: 2.5rem;
